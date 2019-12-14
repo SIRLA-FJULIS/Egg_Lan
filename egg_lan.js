@@ -127,6 +127,22 @@ specialForms.fun = (args, scope) => {
     };
 };
 
+const topScope = Object.create(null);
+
+// define boolean
+topScope.true = true;
+topScope.false = false;
+
+// define operators
+for (let op of ["+", "-", "*", "/", "==", "<", ">"]) {
+    topScope[op] = Function("a, b", `return a ${op} b;`)
+}
+
+topScope.print = value => {
+    console.log(value);
+    return value;
+};
+
 function evaluate(expr, scope) {
     if (expr.type == "value") {
         return expr.value;
@@ -151,22 +167,6 @@ function evaluate(expr, scope) {
         }
     }
 }
-
-const topScope = Object.create(null);
-
-// define boolean
-topScope.true = true;
-topScope.false = false;
-
-// define operators
-for (let op of ["+", "-", "*", "/", "==", "<", ">"]) {
-    topScope[op] = Function("a, b", `return a ${op} b;`)
-}
-
-topScope.print = value => {
-    console.log(value);
-    return value;
-};
 
 function run(program) {
     let parse_tree = parse(program);
