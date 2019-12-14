@@ -14,3 +14,4 @@ https://eloquentjavascript.net/12_language.html
 * step2.js: print
 * stpe3.js: operators
 * step4.js: do
+* step5.js: define
