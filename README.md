@@ -12,4 +12,5 @@ https://eloquentjavascript.net/12_language.html
 每個step實現一點功能，累加上去
 * step1.js: if
 * step2.js: print
-* stpe3.js: do
+* stpe3.js: operators
+* step4.js: do

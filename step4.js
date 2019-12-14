@@ -120,4 +120,9 @@ function run(program) {
     return evaluate(parse_tree, Object.create(topScope));
 }
 
-run(`print(+(1, 2))`); // Modify this 
+run(`
+do(print(+(1, 2)),
+   print(==(2, 2)),
+   print(-(3, 2))
+)
+`); // Modify this 
