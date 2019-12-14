@@ -15,3 +15,5 @@ https://eloquentjavascript.net/12_language.html
 * stpe3.js: operators
 * step4.js: do
 * step5.js: define
+* step6.js: while
+* final = egg_lan.js: fun
