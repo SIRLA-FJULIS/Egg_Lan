@@ -65,6 +65,16 @@ specialForms.if = (args, scope) => {
     }
 };
 
+// -------------Add do-------------------
+specialForms.do = (args, scope) => {
+    let value = false;
+    for (let arg of args) {
+        value = evaluate(arg, scope);
+    }
+    return value;
+};
+// ---------------------------------------------
+
 const topScope = Object.create(null);
 
 // define boolean
@@ -76,11 +86,9 @@ topScope.print = value => {
     return value;
 }
 
-// -------------Add operators-------------------
 for (let op of ["+", "-", "*", "/", "==", "<", ">"]) {
     topScope[op] = Function("a, b", `return a ${op} b;`)
 }
-// ---------------------------------------------
 
 function evaluate(expr, scope) {
     if (expr.type == "value") {

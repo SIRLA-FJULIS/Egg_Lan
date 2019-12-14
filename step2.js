@@ -2,22 +2,12 @@ function parseExpression(program) {
     program = skipSpace(program);
     let match, expr;
     
-    /* 1. 篩選字串: 被雙引號包起來而且中間沒有任何雙引號的
-     * 2. 篩選數字: 開頭是至少一個數字，且數字之後沒有任何其他字
-     * 3. 篩選變數: 不是\s、逗點、#或雙引號的視為變數
-     */
     if (match = /^"([^"]*)"/.exec(program)) {
-        //console.log('first: true');
         expr = {type: "value", value: match[1]};
-        //console.log(expr);
     } else if (match = /^\d+\b/.exec(program)) {
-        // console.log('second: true');
         expr = {type: "value", value: Number(match[0])};
-        // console.log(expr);
     } else if (match = /^[^\s(),#"]+/.exec(program)) {
-        // console.log('third: true');
         expr = {type: "word", name: match[0]};
-        // console.log(expr);
     } else {
         throw new SyntaxError("Unexpected syntax: " + program);
     }
