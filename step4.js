@@ -117,6 +117,7 @@ function evaluate(expr, scope) {
 
 function run(program) {
     let parse_tree = parse(program);
+    console.log(parse_tree.args[2].args[0]);
     return evaluate(parse_tree, Object.create(topScope));
 }
 

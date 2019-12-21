@@ -87,6 +87,7 @@ function evaluate(expr, scope) {
         return expr.value;
     } else if (expr.type == "word") {
         if (expr.name in scope) {
+            console.log(expr.name);
             return scope[expr.name];
         } else {
             throw new ReferenceError(`Undefined binding: ${expr.name}`);
